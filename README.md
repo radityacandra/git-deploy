@@ -1,3 +1,7 @@
+# pre-installation
+`sudo -u apache ssh-keygen -t rsa`
+`ssh-keyscan -t rsa github.com >> /var/www/.ssh/known_hosts`
+
 # git-deploy
 
 A PHP script to automatically pull from a repository to a web server (using a webhook on GitHub, GitLab, or Bitbucket).
