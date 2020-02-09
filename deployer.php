@@ -7,6 +7,8 @@ $token   = false;
 $sha     = false;
 $DIR     = preg_match("/\/$/", DIR) ? DIR : DIR . "/";
 
+echo shell_exec('whoami');
+
 // retrieve the token
 if (!$token && isset($_SERVER["HTTP_X_HUB_SIGNATURE"])) {
     list($algo, $token) = explode("=", $_SERVER["HTTP_X_HUB_SIGNATURE"], 2) + array("", "");
@@ -131,7 +133,7 @@ if (!empty(TOKEN) && isset($_SERVER["HTTP_X_HUB_SIGNATURE"]) && $token !== hash_
             /**
              * Attempt to pull, returing the output and exit code
              */
-            exec(GIT . " pull 2>&1", $output, $exit);
+            exec(GIT . " pull origin master 2>&1", $output, $exit);
 
             // reformat the output as a string
             $output = (!empty($output) ? implode("\n", $output) : "[no output]") . "\n";
