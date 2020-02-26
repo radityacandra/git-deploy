@@ -1,6 +1,9 @@
 # pre-installation
-`sudo -u apache ssh-keygen -t rsa`
-`ssh-keyscan -t rsa github.com >> /var/www/.ssh/known_hosts`
+- `sudo -u www-data ssh-keygen -t rsa`
+- `sudo chmod 777 -R /var/www/.ssh`
+- `sudo chmod 400 /var/www/.ssh/id_rsa /var/www/.ssh/id_rsa.pub`
+- `sudo touch /var/www/.ssh/known_hosts`
+- `ssh-keyscan -t rsa github.com >> /var/www/.ssh/known_hosts`
 
 # git-deploy
 
